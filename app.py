@@ -12,9 +12,9 @@ model = load_model('joblib')
 
 # Define the app
 st.title('Credit Card Fraud Detection')
-st.warning('Incase Aryush(FEBS datascience bootcamp) is seeing this. there is sligh improvement in the original notebook, leading to better model performance in last few cells of notebook')
-st.markdown(f'[Notebook here](https://github.com/tikendraw/creadit-card-fraud-detection-febs-capstone-project/blob/main/notebooks/credit_card_fraud_detection_capstone_project.ipynb)')
-st.markdown(f"[Github Repository](https://github.com/tikendraw/creadit-card-fraud-detection-febs-capstone-project) ")
+st.warning('Incase Aryush(FEBS datascience bootcamp) is seeing this. there is slight improvement in the original notebook, leading to better model performance in last few cells of notebook')
+st.markdown('[Notebook here](https://github.com/tikendraw/creadit-card-fraud-detection-febs-capstone-project/blob/main/notebooks/credit_card_fraud_detection_capstone_project.ipynb)')
+st.markdown("[Github Repository](https://github.com/tikendraw/creadit-card-fraud-detection-febs-capstone-project) ")
 # Sidebar for single prediction
 st.sidebar.header('Single Prediction')
 input_data = {}
@@ -55,7 +55,7 @@ if uploaded_file is not None:
     # Display results
     results_df = batch_data.copy()
     results_df['Prediction'] = predictions
-    results_df['Probability'] = predictions_proba[:, 1]  # binary classification
+    results_df['Probability of Fraudulent'] = predictions_proba[:, 1]  # binary classification
 
     st.write(results_df)
 
