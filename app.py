@@ -1,10 +1,11 @@
+import os
 import pickle
 
+import joblib
 import pandas as pd
 import streamlit as st
 from sklearn.pipeline import Pipeline
-import os
-import joblib
+
 from utils import load_model
 
 model = load_model('joblib')
@@ -12,7 +13,8 @@ model = load_model('joblib')
 # Define the app
 st.title('Credit Card Fraud Detection')
 st.warning('Incase Aryush(FEBS datascience bootcamp) is seeing this. there is sligh improvement in the original notebook, leading to better model performance in last few cells of notebook')
-st.markdown(f'[Notebook here](www.github.com/tikendraw/credit-card-fraud-detection-febs-capstone-project)')
+st.markdown(f'[Notebook here](https://github.com/tikendraw/creadit-card-fraud-detection-febs-capstone-project/blob/main/notebooks/credit_card_fraud_detection_capstone_project.ipynb)')
+st.markdown(f"[Github Repository](https://github.com/tikendraw/creadit-card-fraud-detection-febs-capstone-project) ")
 # Sidebar for single prediction
 st.sidebar.header('Single Prediction')
 input_data = {}
