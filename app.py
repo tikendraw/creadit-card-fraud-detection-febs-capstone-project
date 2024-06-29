@@ -64,11 +64,12 @@ if st.sidebar.button('Predict'):
 
 # Batch prediction
 st.header('Batch Prediction')
-uploaded_file = st.file_uploader('Upload a CSV file for batch prediction', type=['csv'])
+uploaded_file = st.file_uploader('Upload a CSV file for batch prediction( should have capitalized column names)', type=['csv'])
 
 if uploaded_file is not None:
     batch_data = pd.read_csv(uploaded_file)
-        
+    batch_data.columns = [str(i).capitalize() for i in batch_data.columns]
+    
     if col in batch_data.columns:
         if str(col).lower() == 'time':
             batch_data = batch_data.drop(col, axis=1)
