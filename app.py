@@ -5,43 +5,14 @@ import streamlit as st
 from sklearn.pipeline import Pipeline
 import os
 import joblib
-
-# Load the trained model from a pickle file
-def load_model(kind='joblib'):
-    """ kind = 'joblib' or 'pkl' """
-    
-    pkl_link = "https://drive.google.com/file/d/1Bthv92aMCRYcIj80D8UIoHGgMFq3LO22/view?usp=sharing"
-    joblib_link = "https://drive.google.com/file/d/1dmQfFcPQ503RgNkXuHxCbv5KT6CBXaI5/view?usp=sharing"
-    
-    pkl_id = pkl_link.split("/")[-2]
-    joblib_id = joblib_link.split("/")[-2]
-    
-    if kind in ['joblib', 'jbl']:
-        if not os.path.exists('./models/model_pipeline.joblib'):
-            os.system(f"gdown --id {joblib_id} --output ./models/model_pipeline.joblib")
-
-        with open('./models/model_pipeline.joblib', 'rb') as f:
-            model = joblib.load(f)
-
-        
-    elif kind in ['pkl', 'pickle']:
-        if not  os.path.exists('./models/model_pipeline.pkl'):
-            os.system(f"gdown --id {pkl_id} --output ./models/model_pipeline.pkl")
-
-        with open('./models/model_pipeline.pkl', 'rb') as f:
-            model = pickle.load(f)
-            
-        
-
-    print('+'*50)
-    print(type(model))
-    return model
+from utils import load_model
 
 model = load_model('joblib')
 
 # Define the app
 st.title('Credit Card Fraud Detection')
-
+st.warning('Incase Aryush(FEBS datascience bootcamp) is seeing this. there is sligh improvement in the original notebook, leading to better model performance in last few cells of notebook')
+st.markdown(f'[Notebook here](www.github.com/tikendraw/credit-card-fraud-detection-febs-capstone-project)')
 # Sidebar for single prediction
 st.sidebar.header('Single Prediction')
 input_data = {}
